@@ -1,0 +1,12 @@
+{
+  "name": "demo-padrao-web",
+  "version": "1.0.0",
+  "description": "Demo Web Padrão da Área de Soluções do Pagar.me",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Time de Soluções",
+  "license": "MIT"
+}
