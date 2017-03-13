@@ -1,0 +1,37 @@
+<!-- Primeira parte, que inicia vísivel -->
+<div class="container" ng-hide="showOkMsg" style="margin-bottom: 50px;">
+    <div class="row">
+	<div class="col-xs-6 center-block">
+	    <div class="width-medium">
+		<h2 style="margin-top: 30px;">Checkout</h2>
+
+		<!-- Produto -->
+		<product product-id="productId" price="price"></product>
+
+		<br/>
+
+		<!-- Metadata -->
+		<metadata-form save-metadata="saveMetadata" metadata="metadata"></metadata-form>
+
+		<br/>
+
+		<!-- Pagamanento com N cartões e boleto -->
+		<payment-method is-checkout="isCheckout" num-of-cards="numOfCards" payment-methods="paymentMethods" pay="pay"></payment-method>
+	    </div>
+	</div>
+    </div>
+</div>
+
+<!-- Aparece depois do checkout -->
+<div class="container" ng-show="showOkMsg" style="margin-bottom: 520px;">
+    <div class="row">
+	<div class="col-xs-6 center-block">
+	    <div class="width-medium">
+		<div class="text-center">
+		    <h2 style="margin-top: 40px;">Pedido Registrado!</h2>
+		    <p class="text-muted">Se você usou boleto, seu pedido só será aprovado a partir do pagamento.</p>
+		</div>
+	    </div>
+	</div>
+    </div>
+</div>

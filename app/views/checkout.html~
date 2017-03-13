@@ -1,0 +1,45 @@
+<!-- Primeira parte, que inicia vísivel -->
+<div class="container" ng-hide="showOkMsg" style="margin-bottom: 250px;">
+    <div class="row">
+	<div class="col-xs-6 center-block">
+	    <div class="width-medium">
+		<h2 style="margin-top: 30px;">Checkout</h2>
+		<h4>Metadados</h4>
+		<p>Adicione metadados que façam sentido para sua operação, pode ser qualquer coisa! Leia mais sobre isso em <a href="https://docs.pagar.me/api/#objeto-transaction"><b class="baloo-tamma">Transações</b></a>.</p>
+
+		<!-- Formulários de Metadata -->
+		<div class="btn-group" role="group">
+		    <button class="btn btn-outline-primary" ng-click="addMetadata()">+</button>
+		    <button class="btn btn-outline-primary" ng-click="removeMetadata()">-</button>
+		</div>
+		<br>
+		<form class="form-inline" ng-repeat="i in range(0, numOfMetadata)">
+		    <div class="form-group">
+			<input type="text" class="form-control" ng-model="metadataKeys[i]" placeholder="Nome do metadado">
+		    </div>
+		    <div class="form-group">
+			<input type="text" class="form-control" ng-model="metadataValues[i]" placeholder="Valor do metadado">
+		    </div>
+		</form>
+
+		<!-- Botão de checkout -->
+		<button class="btn btn-outline-primary" ng-click="pay()" style="margin-top: 10px;">Pagar</button>
+	    </div>
+	</div>
+    </div>
+</div>
+
+<!-- Aparece depois do checkout -->
+<div class="container" ng-show="showOkMsg" style="margin-bottom: 400px;">
+    <div class="row">
+	<div class="col-xs-6 center-block">
+	    <div class="width-medium">
+		<div class="text-center">
+		    <h2 style="margin-top: 40px;">Metadados OK!</h2>
+		</div>
+		<h4><b class="baloo-tamma">Seus metadados são:</b></h4>
+		<p>{{metadata}}</p>
+	    </div>
+	</div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<!-- Main App CSS -->
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Angular JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular-route.min.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+	<!-- Pagar.me Checkout JS -->
+	<script src="https://assets.pagar.me/checkout/checkout.js"></script>
+
+	<!-- App's main JS -->
+	<script src="app.js"></script>
+
+	<!-- Services -->
+	<script src="services/api_key_service.js"></script>
+	<script src="services/payment_service.js"></script>
+	<script src="services/post_service.js"></script>
+	
+	<!-- Controllers -->
+	<script src="controllers/api_key_controller.js"></script>
+	<script src="controllers/checkout_controller.js"></script>
+	<script src="controllers/marketplace_controller.js"></script>
+
+	<!-- Directice Controllers -->
+	<script src="directives/controllers/metadata_controller.js"></script>
+	<script src="directives/controllers/product_controller.js"></script>
+	<script src="directives/controllers/payment_method_controller.js"></script>
+	<script src="directives/controllers/recipients_controller.js"></script>
+	
+	<!-- Directives -->
+	<script src="directives/std_demo_header.js"></script>
+	<script src="directives/std_demo_footer.js"></script>
+	<script src="directives/metadata_form.js"></script>
+	<script src="directives/product.js"></script>
+	<script src="directives/payment_method.js"></script>
+	<script src="directives/recipients.js"></script>
+    </head>
+    <body ng-app="standardWebDemoApp">
+	<div class="wrapper">
+	    <std-demo-header></std-demo-header>
+	    
+	    <ng-view></ng-view>
+
+	    <div class="push"></div>
+	</div>
+
+	    <std-demo-footer></std-demo-footer>
+    </body>
+</html>

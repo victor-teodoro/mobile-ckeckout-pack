@@ -1,0 +1,13 @@
+app.service('postService', ['$http', 'apiKeyService', function($http, apiKeyService) {
+var authCard = function(transaction_json, numOfCards, price, metadata, splitRules) {
+	$http.post('https://api.pagar.me/1/transactions', transaction_json)
+	    .then(function successCallback (response) {
+		console.log(response.data);
+		
+		numOfCards -= 1;
+		if(numOfCards > 0)
+		    super.checkout_card(numOfCards, price, metadata, splitRules);
+	    }, function errorCallback (failure) {
+		console.log("failed : ", failure);
+	    });
+    }

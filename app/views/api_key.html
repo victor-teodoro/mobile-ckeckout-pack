@@ -1,0 +1,42 @@
+<!-- Primeira parte, que inicia vísivel -->
+<div class="container" ng-hide="showOkMsg" style="margin-bottom: 250px;">
+    <div class="row">
+	<div class="col-xs-6 center-block">
+	    <div class="width-medium">
+		<h2 style="margin-top: 30px;">API Keys</h2>
+		<p>Entre com suas chaves de API e de encriptação. Elas estão disponíveis na sua <a href="https://dashboard.pagar.me/#/myaccount/apikeys"><b class="baloo-tamma">Dashboard</b></a>.</p>
+		<form>
+		    <div class="form-group">
+			<label class="baloo-tamma"><span class="glyphicon glyphicon-link"></span>API Key</label>
+			<input type="text" class="form-control" id="apiKey" ng-model="apiKey" placeholder="API Key">
+		    </div>
+		    <div class="form-group">
+			<label class="baloo-tamma"><span class="glyphicon glyphicon-random"></span>Encryption Key</label>
+			<input type="text" class="form-control" id="encryptionKey" ng-model="encryptionKey" placeholder="Encryption Key">
+		    </div>
+		</form>
+		<button class="btn btn-outline-primary pull-right" ng-click="success()">Salvar</button>
+	    </div>
+	</div>
+    </div>
+</div>
+
+<!-- Aparece depois de Salvar -->
+<div class="container" ng-show="showOkMsg" style="margin-bottom: 400px;">
+    <div class="row">
+	<div class="col-xs-6 center-block">
+	    <div class="width-medium">
+		<div class="text-center">
+		    <h2 style="margin-top: 40px;">API Keys</h2>
+		</div>
+		<h4><b class="baloo-tamma">Suas chaves são:</b></h4>
+		<ul>
+		    <li><b class="baloo-tamma">API Key:</b> &nbsp;{{apiKey}}</li>
+		    <li><b class="baloo-tamma">Encryption Key:</b> &nbsp;{{encryptionKey}}</li>
+		</ul>
+	    </div>
+	</div>
+    </div>
+</div>
+
+

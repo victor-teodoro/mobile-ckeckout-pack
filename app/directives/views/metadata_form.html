@@ -1,0 +1,16 @@
+<h4>Metadados</h4>
+<p>Adicione metadados que façam sentido para sua operação. Pode ser qualquer coisa! Leia mais sobre isso em <a href="https://docs.pagar.me/api/#objeto-transaction"><b class="baloo-tamma">Transações</b></a>.</p>
+
+<!-- Formulário de Metadata -->
+<div class="btn-group" role="group">
+    <button class="btn btn-outline-primary" ng-click="addMetadata()">+</button>
+    <button class="btn btn-outline-primary" ng-click="removeMetadata()">-</button>
+</div>
+<form class="form-inline" ng-repeat="i in range(0, numOfMetadata)">
+    <div class="form-group">
+	<input type="text" class="form-control" ng-model="metadataKeys[i]" placeholder="Nome do metadado">
+    </div>
+    <div class="form-group">
+	<input type="text" class="form-control" ng-model="metadataValues[i]" placeholder="Valor do metadado">
+    </div>
+</form>

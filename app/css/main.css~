@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+@import url(https://fonts.googleapis.com/css?family=Baloo+Tamma);
+@import url(https://fonts.googleapis.com/css?family=Lora);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+    background-color: #E0E0E0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Baloo Tamma, sans-serif;
+}
+
+p, li {
+    font-family: Roboto, sans-serif;
+}
+
+.baloo-tamma {
+    font-family: Baloo Tamma;
+}
+
+.width-medium {
+    width: 600px;
+}
+
+.center-block {
+    float: none;
+    margin: 0 auto;
+}
+
+.navbar {    
+    //background-color: green;
+}
+
+.nav-link, .white {
+    color: #FFF;
+}
+
+a {
+    color: black;
+}
+
+.nav-link:hover, .nav-link:visited, .nav-link:focus,
+a:hover, a:visited, a:focus
+{
+    color: #C0C0C0;
+}
+
+.navbar-toggle {
+    background-color: white;
+}
+
+.logo-pagarme {
+    height: 30%;
+    width: 30%;
+}
+
+.pull-right {
+    float: right;
+}
+
+.btn-outline-primary {
+    border-color: black;
+    color: black;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary:visited {
+    border-color: black;
+    background-color: black;
+    color: white;
+}
+
+.glyphicon {
+    font-size: 12px;
+}
+
+.form-group {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    padding: 10px 0px 10px 0px;
+    margin-top: 20px;
+    font-family: Baloo Tamma;
+    font-weight: bold;
+}

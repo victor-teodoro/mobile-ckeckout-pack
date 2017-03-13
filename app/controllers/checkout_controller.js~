@@ -1,0 +1,38 @@
+app.controller('checkoutCtrl', ['$scope', function($scope) {
+    // Mostra o depois da transação com ng-show
+    $scope.showOkMsg = false;
+    
+    // Vetores que guardam as chaves e os valores dos metadatas
+    $scope.metadataKeys = [];
+    $scope.metadataValues = [];
+
+    // Objeto com os metadados
+    $scope.metadata = {};
+
+    $scope.pay = function() {
+	for(var i = 0; i <= $scope.numOfMetadata; ++i) {
+	    $scope.metadata[$scope.metadataKeys[i]] = $scope.metadataValues[i];
+	}
+	
+	$scope.showOkMsg = true;
+    };
+
+    $scope.numOfMetadata = 0;
+
+    $scope.addMetadata = function() {
+	$scope.numOfMetadata += 1;
+    };
+    $scope.removeMetadata = function() {
+	$scope.numOfMetadata -= 1;
+    };
+
+
+    $scope.range = function(min, max, step) {
+	step = step || 1;
+	var input = [];
+	for (var i = min; i <= max; i += step) {
+            input.push(i);
+	}
+	return input;
+    };
+}]);
