@@ -1,12 +1,4 @@
 app.controller('checkoutCtrl', ['$scope', '$http', 'paymentService', 'apiKeyService', function($scope, $http, paymentService, apiKeyService) {
-    // Controla a exibição do footer
-    $scope.height = {
-	'min-height': getHeight() + "px"
-    };
-
-    function getHeight() {
-        return (window.innerHeight * .70);
-    }
     // Mostra o depois da transação com ng-show
     $scope.showOkMsg = false;
 

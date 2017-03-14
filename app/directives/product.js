@@ -3,7 +3,7 @@ app.directive("product", function() {
         templateUrl : "directives/views/product.html",
 	controller: 'productCtrl',
 	scope: {
-	    price: "=price",
+	    price: "=",
 	    productId: "=productId"
 	}
     };

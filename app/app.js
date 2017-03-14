@@ -21,6 +21,10 @@ app.config(['$routeProvider', function($routeProvider) {
 	    templateUrl : "views/telesales.html",
 	    controller: 'telesalesCtrl'
 	})
+	.when("/login", {
+	    templateUrl : "views/telesales.html",
+	    controller: 'loginCtrl'
+	})
 	.when("/subscriptions", {
 	    templateUrl: "views/subscriptions.html",
 	    controller: 'subscriptionsCtrl'

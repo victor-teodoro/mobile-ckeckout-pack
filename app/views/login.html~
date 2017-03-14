@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="page-header">
+	<div class="container-fluid">
+	    <div class="row">
+		<div class="col-md-2">
+		    <img src="logo.png">
+		</div>
+		<div class="col-md-4 text-center" style="margin-left: 400px; margin-top: 20px;">
+		    <h6 style="color: #961922;">Televendas</h6>
+		</div>
+	    </div>
+	</div>
+    </div>
+</div>
+<div class="row padding-50 bg-white" style="margin-top: 150px;">
+    <div class="col-md-4">&nbsp&nbsp&nbsp&nbsp</div>
+    <div class="col-md-4">
+	<div class="panel panel-default">
+	    <div class="panel-heading" style="height: 30px; text-align:center;background-color:#961922;color:white">Login</div>
+	    <div class="panel-body">
+		<div class="input-group" style="margin-bottom:10px">
+		    <span class="input-group-addon" id="basic-addon1"> @ </span>
+		    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group">
+		    <span class="input-group-addon"  id="basic-addon1"> # </span>
+		    <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+		</div>
+		<a href="./telesales.html" class="btn btn-primary" style="text-align:center;width: 100%; margin-top: 10px; background-color:#961922;color:white;border:0px">
+		    Entrar
+		</a>
+
+	    </div>
+	</div>
+    </div>
+    <div class="col-md-4">&nbsp&nbsp&nbsp&nbsp</div>
+</div>
+</div>

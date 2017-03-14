@@ -54,7 +54,7 @@ app.controller('recipientsCtrl', ['$scope', '$http', 'apiKeyService', function($
 	$http.get('https://api.pagar.me/1/recipients?api_key=' + apiKeyService.apiKey)
 	    .then(function successCallback (response) {
 		// Pega os 4 primeiros recebedores apenas
-		for(var i = 0; i < 4; ++i) {
+		for(var i = 0; i < 5; ++i) {
 		    $scope.recipients[i] = response.data[i];
 
 		    console.log($scope.recipients[i]);
