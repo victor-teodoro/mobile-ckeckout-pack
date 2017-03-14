@@ -20,9 +20,9 @@ git add .
 git commit -m "Sua mensagem"
 
 ####Para acesso via HTML (tem que digitar usuário e senha toda vez que for subir as mudanças)
-git remote set-url origin https://github.com/pagarme/demo-web-padrao-solutions.git
+git remote add origin https://github.com/pagarme/demo-web-padrao-solutions.git
 ####Para acesso via SSH (não precisa de usuário e senha toda vez, mas use um dos dois apenas, ou HTML ou SSH). Para criar uma chave SSH siga os passos dessas páginas aqui https://help.github.com/articles/generating-an-ssh-key/
-git remote set-url origin git@github.com:pagarme/demo-web-padrao-solutions.git
+git remote add origin git@github.com:pagarme/demo-web-padrao-solutions.git
 
 ####Suba as mudanças
 git push origin master
