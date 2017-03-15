@@ -19,8 +19,29 @@ p, li {
     font-family: Baloo Tamma;
 }
 
+.width-small {
+    width: 400px;
+}
+
 .width-medium {
     width: 600px;
+}
+
+.panel-heading {
+    height: 30px;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #000000;
+    color: white;
+    border: 0px;
 }
 
 .center-block {

@@ -22,7 +22,7 @@ app.config(['$routeProvider', function($routeProvider) {
 	    controller: 'telesalesCtrl'
 	})
 	.when("/login", {
-	    templateUrl : "views/telesales.html",
+	    templateUrl : "views/login.html",
 	    controller: 'loginCtrl'
 	})
 	.when("/subscriptions", {
