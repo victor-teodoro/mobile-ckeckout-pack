@@ -6,7 +6,8 @@ app.directive("paymentMethod", function() {
 	    isCheckout: "=",
 	    numOfCards: "=",
 	    paymentMethods: "=",
-	    pay: "="
+	    pay: "=",
+	    price: '='
 	}
     };
 });
