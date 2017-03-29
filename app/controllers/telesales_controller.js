@@ -44,8 +44,15 @@ app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', function($s
         checkout.open(params);	    
     };
 
-    $scope.getCheckoutLink = function() {
-	$scope.linkSuccess = true;
+    $scope.sendEmail = function() {
+	$http.get('https://pagarme-email-api.herokuapp.com/')
+	    .then(function successCallback (response) {
+		console.log(response.data);
+
+		$scope.linkSuccess = true;		
+	    }, function errorCallback (failure) {
+		console.log("failed : ", failure);
+	    });	
     }
 }]);
 
