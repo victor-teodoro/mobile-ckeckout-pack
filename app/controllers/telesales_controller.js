@@ -3,6 +3,9 @@ app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', function($s
     $scope.chktSuccess = false;
     $scope.linkSuccess = false;
 
+    // Email do cliente
+    $scope.costumerEmail = "";
+
     /********************************************************************************
      * Daqui pra baixo estão as funções que lidam com o processamento dos pagamentos
      * Idealmente estariam num service ou outro controller, se você estiver usando
@@ -45,7 +48,13 @@ app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', function($s
     };
 
     $scope.sendEmail = function() {
-	$http.get('https://pagarme-email-api.herokuapp.com/')
+	var emailAPIEndpoint = 'https://pagarme-email-api.herokuapp.com/';
+	
+	var emailPost = {
+	    email: $scope.costumerEmail
+	};
+	
+	$http.post(emailAPIEndpoint, emailPost)
 	    .then(function successCallback (response) {
 		console.log(response.data);
 

@@ -7,10 +7,10 @@
 		    <product product-id="productId" price="price"></product>
 		    <br/>
 
-		    <button ng-click="openCheckout(price)" class="btn btn-outline-primary" style="width: 100%;">FINALIZAR COMPRA</button>
+		    <button ng-click="openCheckout(price)" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 10px;">FINALIZAR COMPRA</button>
 		    <br/>
-		    
-		    <button ng-click="sendEmail()" class="btn btn-outline-primary" value="ENVIAR EMAIL" style="width: 100%; margin-top: 20px;">ENVIAR EMAIL</button>
+		    <input type="text" ng-model="costumerEmail" class="form-control" placeholder="email@something.com" size="30" maxlength="40">
+		    <button ng-click="sendEmail()" class="btn btn-outline-primary" value="ENVIAR EMAIL" style="width: 100%; margin-top: 5px;">ENVIAR EMAIL</button>
 		</div>
 		
 		<div id="msg" class="text-center" ng-show="chktSuccess">
@@ -18,8 +18,7 @@
 		</div>
 		
 		<div id="msg2" class="text-center" ng-show="linkSuccess">
-		    <h3>O link para o envio para o cliente é:</h3>
-		    <h3><a href="#">PAGAR ONLINE</a></h3>
+		    <h3>Um email foi enviado para {{costumerEmail}}</h3>
 		</div> 
 		<div class="col-md-4">&nbsp&nbsp&nbsp&nbsp</div>
 		<div class="col-md-4">&nbsp&nbsp&nbsp&nbsp</div>
