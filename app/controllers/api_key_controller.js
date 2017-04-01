@@ -3,8 +3,8 @@ app.controller('apiKeyCtrl', ['$scope', 'apiKeyService', function($scope, apiKey
     $scope.showApiKeyMsg = false;
     $scope.showEncKeyMsg = false;
 
-    $scope.apiKey = "ak_test_jUC8l5YGoIX34M8IMYSmG7Sd8YcUkH";
-    $scope.encryptionKey = "ek_test_G84bs5wa355FioxHAC00lGUe1f1p4O";    
+    $scope.apiKey = "";
+    $scope.encryptionKey = "";    
 
     $scope.success = function() {
 	apiKeyService.addApiKey($scope.apiKey);
