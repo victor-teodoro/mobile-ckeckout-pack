@@ -80,8 +80,11 @@
 		    </div>
 		</form>
 	    </div>
-	    <div class="modal-footer">
-		<button ng-click="creditCard()" type="button" class="btn btn-outline-primary" data-dismiss="modal">registrar</button>
+	    <div class="modal-footer" ng-hide="numOfBoletos === 1">
+		<button ng-click="creditCard()" type="button" class="btn btn-outline-primary" data-dismiss="modal">Pagar</button>
+	    </div>
+	    <div class="modal-footer" ng-show="numOfBoletos === 1">
+		<button ng-click="creditCardAndBoleto()" type="button" class="btn btn-outline-primary" data-dismiss="modal">Pagar</button>
 	    </div>
 	</div>
     </div>

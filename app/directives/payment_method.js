@@ -7,7 +7,8 @@ app.directive("paymentMethod", function() {
 	    numOfCards: "=",
 	    paymentMethods: "=",
 	    pay: "=",
-	    price: '='
+	    price: '=',
+	    amountPerMethod: '='
 	}
     };
 });

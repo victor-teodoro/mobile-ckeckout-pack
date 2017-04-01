@@ -7,27 +7,23 @@ app.controller('checkoutCtrl', ['$scope', '$http', 'paymentService', 'apiKeyServ
     *********************************************/
     $scope.isCheckout = true;    
     $scope.tids = []; // Guarda os ids das transações para captura
+    $scope.cardsProcessed = 0;
 
     $scope.pay = function(paymentMethod) {
 	// Registra os metadados digitados
 	$scope.saveMetadata();
 
-	console.log(paymentMethod);
-	console.log($scope.paymentMethods);
+	// Paga de acordo com o método de pagamento escolhido
 	if(paymentMethod === $scope.paymentMethods.credit_card) {
 	    // Não usa boleto
 	    var usesBoleto = false;
-	    // Calcula o preço por cartão
-	    var sharedPrice = ($scope.price/$scope.numOfCards).toFixed(2);
 	    // Paga só com cartões
-	    $scope.checkout_card($scope.numOfCards, usesBoleto, sharedPrice, $scope.metadata, null);
+	    $scope.checkout_card($scope.numOfCards, usesBoleto, $scope.amountPerMethod, $scope.metadata, null);
 	} else if(paymentMethod === $scope.paymentMethods.credit_card_and_boleto) {
 	    // Usa boleto
 	    var usesBoleto = true;
-	    // Calcula o preço por cartão
-	    var sharedPrice = ($scope.price/($scope.numOfCards + 1)).toFixed(2);
 	    // Paga só com cartões
-	    $scope.checkout_card($scope.numOfCards, usesBoleto, sharedPrice, $scope.metadata, null);
+	    $scope.checkout_card($scope.numOfCards, usesBoleto, $scope.amountPerMethod, $scope.metadata, null);
 	} else if(paymentMethod === $scope.paymentMethods.boleto) {
 	    $scope.createBoleto($scope.price);
 	}
@@ -41,10 +37,14 @@ app.controller('checkoutCtrl', ['$scope', '$http', 'paymentService', 'apiKeyServ
      *******************************************************************************/
     
     // Pagar só com cartão
-    $scope.checkout_card = function (numOfCards, usesBoleto, price, metadata, splitRules) {
+    $scope.checkout_card = function (numOfCards, usesBoleto, amountPerMethod, metadata, splitRules) {
+	// Define o preço
+	var price = amountPerMethod.shift();
+	$scope.cardsProcessed += 1;
+	
 	// INICIAR A INSTÂNCIA DO CHECKOUT
         var checkout = new PagarMeCheckout.Checkout({"encryption_key": apiKeyService.encryptionKey, success: function(data) {
-            console.log(data);
+            console.log(data);    
 
 	    var transaction_json = {
 		"api_key": apiKeyService.apiKey,
@@ -63,11 +63,13 @@ app.controller('checkoutCtrl', ['$scope', '$http', 'paymentService', 'apiKeyServ
 		    if(response.data.status === "authorized" && numOfCards > 0) {
 			console.log("# de Cartões: " + numOfCards);
 			$scope.tids.push(response.data.tid);
-			$scope.checkout_card(numOfCards, usesBoleto, price, metadata, splitRules);
+			$scope.checkout_card(numOfCards, usesBoleto, amountPerMethod, metadata, splitRules);
 		    } else if(response.data.status === "authorized" && numOfCards === 0 && usesBoleto === false) {
+			$scope.cardsProcessed = 0;
 			$scope.tids.push(response.data.tid);
 			$scope.captureCards($scope.tids);
 		    } else if(response.data.status === "authorized" && numOfCards === 0 && usesBoleto === true) {
+			$scope.cardsProcessed = 0;
 			$scope.createBoleto(price);			
 		    } else if(response.data.status != "authorized") {
 			alert("Cartão não aprovado.");
@@ -87,7 +89,8 @@ app.controller('checkoutCtrl', ['$scope', '$http', 'paymentService', 'apiKeyServ
 	    "maxInstallments": "12",
 	    "paymentMethods": "credit_card",
 	    "interestRate": "0",
-	    "uiColor": "#000000"
+	    "uiColor": "#000000",
+	    "headerText": "Cartão # " + $scope.cardsProcessed
 	};
 	
         checkout.open(params);	    

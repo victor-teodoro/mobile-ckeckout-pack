@@ -8,14 +8,15 @@ app.controller('paymentMethodCtrl', ['$scope', function($scope) {
     
     $scope.aggregateAmount = function() {
 	var aggregateAmount = 0;
-	for(amount of $scope.amountPerMethod) {
-	    aggregateAmount += Number(amount.replace(",", "."));
+	for(var i = 0; i < $scope.amountPerMethod.length; ++i) {
+	    aggregateAmount += Number($scope.amountPerMethod[i].replace(",", "."));
 	}
 	return aggregateAmount.toFixed(2).toString().replace(".", ",");
     }
 
     $scope.amountDiff = function() {
-	return (($scope.price - Number($scope.aggregateAmount().replace(",", "."))).toFixed(2)).toString().replace(".", ",");
+	var restValue = (($scope.price - Number($scope.aggregateAmount().replace(",", "."))).toFixed(2)).toString().replace(".", ",");
+	return restValue;
     }
     
     // Cuida do método de pagamento usado
@@ -38,13 +39,25 @@ app.controller('paymentMethodCtrl', ['$scope', function($scope) {
 	else $scope.numOfCards -= 1;
     };
 
+    // Normaliza o vetor de valores de pagamento
+    $scope.normalizeValuePerMethod = function() {
+	$scope.amountPerMethod.push($scope.amountDiff());
+	
+	for(var i = 0; i < $scope.amountPerMethod.length; ++i) {
+	    $scope.amountPerMethod[i] = Number($scope.amountPerMethod[i].replace(",", "."));
+	}
+    };
+    
     // Define o método de pagamento
     $scope.creditCard = function() {
 	var paymentMethod = $scope.paymentMethods.credit_card;
+	$scope.normalizeValuePerMethod();
+	console.log($scope.amountPerMethod);
 	$scope.pay(paymentMethod);
     };
     $scope.creditCardAndBoleto = function() {
 	var paymentMethod = $scope.paymentMethods.credit_card_and_boleto;
+	$scope.normalizeValuePerMethod();
 	$scope.pay(paymentMethod);
     };
     $scope.boleto = function() {
