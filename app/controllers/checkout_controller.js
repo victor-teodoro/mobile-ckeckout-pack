@@ -1,4 +1,12 @@
-app.controller('checkoutCtrl', ['$scope', '$http', 'paymentService', 'apiKeyService', function($scope, $http, paymentService, apiKeyService) {
+app.controller('checkoutCtrl', ['$scope', '$http', 'styleService', 'paymentService', 'apiKeyService', function($scope, $http, styleService, paymentService, apiKeyService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     // Mostra o depois da transação com ng-show
     $scope.showOkMsg = false;
 
@@ -8,7 +16,7 @@ app.controller('checkoutCtrl', ['$scope', '$http', 'paymentService', 'apiKeyServ
     $scope.isCheckout = true;    
     $scope.tids = []; // Guarda os ids das transações para captura
     $scope.cardsProcessed = 0;
-
+    
     $scope.pay = function(paymentMethod) {
 	// Registra os metadados digitados
 	$scope.saveMetadata();

@@ -1,12 +1,4 @@
-app.controller('apiKeyCtrl', ['$scope', 'apiKeyService', 'styleService', function($scope, apiKeyService, styleService) {
-    // Getters e setters das cores
-    $scope.getBackgroundColor = function () {
-	return styleService.getBackgroundColor();
-    };
-    $scope.getHeaderColor = function () {
-	return styleService.getHeaderColor();
-    };
-    
+app.controller('apiKeyCtrl', ['$scope', 'apiKeyService', function($scope, apiKeyService) {
     $scope.showOkMsg = false;
     $scope.showApiKeyMsg = false;
     $scope.showEncKeyMsg = false;

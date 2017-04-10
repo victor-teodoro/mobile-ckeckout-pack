@@ -1,5 +1,5 @@
 <!-- Primeira parte, que inicia vísivel -->
-<div class="container" ng-hide="showOkMsg" style="margin-bottom: 250px;">
+<div class="container" ng-hide="showOkMsg" style="margin-bottom: 250px; width: 100%;">
     <div class="row">
 	<div class="col-xs-6 center-block">
 	    <div class="width-medium">
@@ -15,14 +15,14 @@
 			<input type="text" class="form-control" id="encryptionKey" ng-model="encryptionKey" placeholder="Encryption Key">
 		    </div>
 		</form>
-		<button class="btn btn-outline-primary pull-right" ng-click="success()">Salvar</button>
+		<button class="btn btn-outline-primary pull-right" ng-click="success()" ng-style="getHeaderColor()">Salvar</button>
 	    </div>
 	</div>
     </div>
 </div>
 
 <!-- Aparece depois de Salvar -->
-<div class="container" ng-show="showOkMsg" style="margin-bottom: 400px;">
+<div class="container" ng-show="showOkMsg" style="margin-bottom: 400px; width: 100%;">
     <div class="row">
 	<div class="col-xs-6 center-block">
 	    <div class="width-medium">

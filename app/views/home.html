@@ -1,9 +1,11 @@
-<div class="container">
+<div class="container" ng-style="getBackgroundColor()" style="width: 100%">
     <div class="row">
 	<div class="col-xs-6 center-block">
 	    <div class="width-medium">
 		<h2 style="margin-top: 30px;">Demo Web Padrão do Pagar.me</h2>
 		<p>Nessa demonstração, mostramos algumas das funcionalidades principais que o Pagar.me oferece aos seus cliente e que são utilizadas de forma recorrente. Entenda-o como um <em>repositório de casos de uso</em> que podem servir ao seu negócio.</p>
+
+		<!-- Funcionalidades -->
 		<h4>Funcionalidades:</h4>
 		<ul>
 		    <li><b class="baloo-tamma">API Key:</b> utilize sua chave de API e de encriptação e veja as transações na sua própria dashboard.</li>
@@ -12,6 +14,17 @@
 		    <li><b class="baloo-tamma">Televendas:</b> simule como seus atendentes fariam transações via telefone. Ou ainda conclua a compra via email.</li>
 		    <li><b class="baloo-tamma">Assinaturas:</b> veja como seriam feitas suas transações recorrentes. Cadastre planos e crie assinaturas para cobrá-los de forma recorrente.</li>
 		</ul>
+
+		<!-- Customização -->
+		<h4>Customize sua demo!</h4>
+		<div class="form-inline">
+		    <h5 style="margin-right: 5px;">Escolha a cor do header (em hexadecimal):</h5> <input ng-model="headerColor" type="text" class="form-control" size="8" maxlength="7">
+		</div>
+		<br>
+		<br>
+		<button class="btn btn-outline-primary" ng-style="getHeaderColor()" type="button" ng-click="saveColors()" style="width: 100%; margin-bottom: 30px;">Salvar</button>
+
+		<!-- Guia de uso -->
 		<h4>Como usar:</h4>
 		<ol>
 		    <li>Entre com suas chaves de API e de encriptação em <a href="#api_key" class="baloo-tamma">API Key</a>.</li>

@@ -3,7 +3,8 @@ var app = angular.module("standardWebDemoApp", ["ngRoute"]);
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
 	.when("/", {
-	    templateUrl : "views/home.html"
+	    templateUrl : "views/home.html",
+	    controller: 'homeCtrl'
 	})
 	.when("/api_key", {
 	    templateUrl : "views/api_key.html",
