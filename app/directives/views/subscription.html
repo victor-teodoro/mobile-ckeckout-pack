@@ -1,106 +1,109 @@
-<h4>Assinaturas</h4>
-<p>
-    Aqui você pode visualizar como funciona a <a href="https://docs.pagar.me/plans-subscriptions/" class="baloo-tamma">recorrência</a> no Pagar.me. Sempre que você precisar cobrar seus clientes de forma repetida e previsível, a recorrência é uma ótima opção. Alguns casos muito comuns são:
-    <ul>
-	<li>A cobrança de mensalidades em escolas, clubes, etc.</li>
-	<li>A cobrança de assinaturas de revistas e clubes de compras.</li>
-	<li>A compra de medicamentos de uso contínuo.</li>
-    </ul>
-</p>
+<div ng-init="updatePlans()">
+    <h4>Assinaturas</h4>
+    <p>
+	Aqui você pode visualizar como funciona a <a href="https://docs.pagar.me/plans-subscriptions/" class="baloo-tamma">recorrência</a> no Pagar.me. Sempre que você precisar cobrar seus clientes de forma repetida e previsível, a recorrência é uma ótima opção. Alguns casos muito comuns são:
+	<ul>
+	    <li>A cobrança de mensalidades em escolas, clubes, etc.</li>
+	    <li>A cobrança de assinaturas de revistas e clubes de compras.</li>
+	    <li>A compra de medicamentos de uso contínuo.</li>
+	</ul>
+    </p>
 
-<p>Abaixo você pode criar seus planos e simular a assinatura em algum deles. O significado de cada um dos campos pode ser encontrado <a class="baloo-tamma" href="https://docs.pagar.me/api/#objeto-subscription">aqui</a>.<br/><span class="text-muted small-print">O preenchimento dos campos é obrigatório!</span></p>
+    <p>Abaixo você pode criar seus planos e simular a assinatura em algum deles. O significado de cada um dos campos pode ser encontrado <a class="baloo-tamma" href="https://docs.pagar.me/api/#objeto-subscription">aqui</a>.<br/><span class="text-muted small-print">O preenchimento dos campos é obrigatório!</span></p>
 
-<!-- Formulário de Metadata -->
-<div class="btn-group" role="group">
-    <button class="btn btn-outline-primary" ng-click="updatePlans()">Atualizar lista de planos</button>
-    <button id="register-button" class="btn btn-outline-primary" data-toggle="modal" data-target="#register-modal">Criar novo plano</button>
-</div>
-
-<br/>
-
-<div class="row">
-    <div class="col-xs-2" style="margin: 0px 210px 0px 20px;">
-	<p class="text-muted">Plano</p>
+    <!-- Formulário de Metadata -->
+    <div class="btn-group" role="group">
+	<button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="updatePlans()">Atualizar lista de planos</button>
+	<button id="register-button" ng-style="getHeaderColor()" class="btn btn-outline-primary" data-toggle="modal" data-target="#register-modal">Criar novo plano</button>
     </div>
-    <div class="col-xs-2">
-	<p class="text-muted" style="margin-right: 60px;">Valor</p>
-    </div>
-    <div class="col-xs-2">
-	<p class="text-muted">Período de cobrança</p>
-    </div>
-</div>
 
-<form class="form">
-    <div class="form-group">
-	<div class="row">
-	    <div class="col-xs-2">
-		<select class="form-control" ng-options="plan.name for plan in plans" ng-model="selectedPlan" style="width: 250px;"></select>
-	    </div>
-	    <div class="col-xs-2">
-		<input type="text" class="form-control" ng-model="selectedPlan.amountFormatted" placeholder=" R$ " style="width: 100px;" readonly="readonly">
-	    </div>
-	    <div class="col-xs-2">
-		<input class="form-control" ng-model="selectedPlan.days" placeholder="Dias" style="width: 100px;" readonly="readonly">
-	    </div>
+    <br/>
+
+
+    <div class="row">
+	<div class="col-xs-2" style="margin: 0px 210px 0px 20px;">
+	    <p class="text-muted">Plano</p>
+	</div>
+	<div class="col-xs-2">
+	    <p class="text-muted" style="margin-right: 60px;">Valor</p>
+	</div>
+	<div class="col-xs-2">
+	    <p class="text-muted">Período de cobrança</p>
 	</div>
     </div>
-</form>
 
-<!-- Botão de assinatura -->
-<button class="btn btn-outline-primary" ng-click="subscribe()" style="margin-bottom: 20px;">Assinar Plano</button>
-
-<!-- Register Modal -->
-<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" my-modal>
-    <div class="modal-dialog" role="document">
-	<div class="modal-content">
-	    <div class="modal-header bg-inverse">
-		<h6 class="white baloo-tamma" id="exampleModalLabel">Registro de recebedor</h6>
-		<button type="button" class="close white" data-dismiss="modal" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		</button>
+    <form class="form">
+	<div class="form-group">
+	    <div class="row">
+		<div class="col-xs-2">
+		    <select class="form-control" ng-options="plan.name for plan in plans" ng-model="selectedPlan" style="width: 250px;"></select>
+		</div>
+		<div class="col-xs-2">
+		    <input type="text" class="form-control" ng-model="selectedPlan.amountFormatted" placeholder=" R$ " style="width: 100px;" readonly="readonly">
+		</div>
+		<div class="col-xs-2">
+		    <input class="form-control" ng-model="selectedPlan.days" placeholder="Dias" style="width: 100px;" readonly="readonly">
+		</div>
 	    </div>
-	    <div class="modal-body">
-		<!-- Nome -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label style="margin: 0px 117px 0px 0px;">Nome</label>
-			<input id="register-name" ng-model="plan_json.name" type="text" class="form-control" size="25" placeholder="Nome do plano" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		</form>
+	</div>
+    </form>
 
-		<br>
-		
-		<!-- Valor -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label style="margin: 0px 125px 0px 0px;">Valor</label>
-			<input id="register-ag-number" ng-model="plan_json.amount" value="6444" type="text" class="form-control" id="account-number" maxlength="5" size="7" placeholder="R$" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		</form>
+    <!-- Botão de assinatura -->
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="subscribe()" style="margin-bottom: 20px;">Assinar Plano</button>
 
-		<br>
+    <!-- Register Modal -->
+    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" my-modal>
+	<div class="modal-dialog" role="document">
+	    <div class="modal-content">
+		<div class="modal-header" ng-style="getHeaderColor()">
+		    <h6 class="white baloo-tamma" id="exampleModalLabel">Registro de recebedor</h6>
+		    <button type="button" class="close white" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		    </button>
+		</div>
+		<div class="modal-body">
+		    <!-- Nome -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label style="margin: 0px 117px 0px 0px;">Nome</label>
+			    <input id="register-name" ng-model="plan_json.name" type="text" class="form-control" size="25" placeholder="Nome do plano" style="margin: 0px 10px 0px 0px;">
+			</div>
+		    </form>
 
-		<!-- Período de Cobrança -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label class="o-text -xs-pica -xs-regular" style="margin: 0px 13px 0px 0px;">Período de Cobrança</label>
-			<input id="register-account-number" ng-model="plan_json.days" value="03333" type="text" class="form-control" maxlength="7" size="7" placeholder="Dias" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		</form>
+		    <br>
+		    
+		    <!-- Valor -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label style="margin: 0px 125px 0px 0px;">Valor</label>
+			    <input id="register-ag-number" ng-model="plan_json.amount" value="6444" type="text" class="form-control" id="account-number" maxlength="7" size="7" placeholder="R$" style="margin: 0px 10px 0px 0px;">
+			</div>
+		    </form>
 
-		<br>
-		
-		<!-- Carência -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label class="o-text -xs-pica -xs-regular" style="margin: 0px 47px 0px 0px;">Dias de Carência</label>
-			<input id="register-cpf" ng-model="plan_json.trial_days" type="text" class="form-control" id="account-number" maxlength="7" size="7" placeholder="Carência" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		</form>
-		
-	    </div>
-	    <div class="modal-footer">
-		<button ng-click="createPlan()" type="button" class="btn btn-outline-primary" data-dismiss="modal">registrar</button>
+		    <br>
+
+		    <!-- Período de Cobrança -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label class="o-text -xs-pica -xs-regular" style="margin: 0px 13px 0px 0px;">Período de Cobrança</label>
+			    <input id="register-account-number" ng-model="plan_json.days" value="03333" type="text" class="form-control" maxlength="7" size="7" placeholder="Dias" style="margin: 0px 10px 0px 0px;">
+			</div>
+		    </form>
+
+		    <br>
+		    
+		    <!-- Carência -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label class="o-text -xs-pica -xs-regular" style="margin: 0px 47px 0px 0px;">Dias de Carência</label>
+			    <input id="register-cpf" ng-model="plan_json.trial_days" type="text" class="form-control" id="account-number" maxlength="7" size="7" placeholder="Carência" style="margin: 0px 10px 0px 0px;">
+			</div>
+		    </form>
+		    
+		</div>
+		<div class="modal-footer">
+		    <button ng-click="createPlan()" type="button" class="btn btn-outline-primary" ng-style="getHeaderColor()" data-dismiss="modal">registrar</button>
+		</div>
 	    </div>
 	</div>
     </div>

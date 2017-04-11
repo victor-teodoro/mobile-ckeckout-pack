@@ -78,6 +78,7 @@ app.controller('recipientsCtrl', ['$scope', '$http', 'apiKeyService', 'styleServ
 	$http.post('https://api.pagar.me/1/recipients', $scope.recipient_creation)
 	    .then(function successCallback (response) {
 		console.log(response.data);
+		$scope.updateRecipients();
 	    }, function errorCallback (failure) {
 		console.log("failed : ", failure);
 	    });

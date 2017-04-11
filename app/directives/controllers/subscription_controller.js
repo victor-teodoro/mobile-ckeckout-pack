@@ -1,4 +1,12 @@
-app.controller('subscriptionCtrl', ['$scope', '$http', 'apiKeyService', function($scope, $http, apiKeyService) {
+app.controller('subscriptionCtrl', ['$scope', '$http', 'apiKeyService', 'styleService', function($scope, $http, apiKeyService, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     // Infos dos planos
     $scope.plans = [];
     $scope.selectedPlan = {};
@@ -74,6 +82,7 @@ app.controller('subscriptionCtrl', ['$scope', '$http', 'apiKeyService', function
 	$http.post('https://api.pagar.me/1/plans', $scope.plan_json)
 	    .then(function successCallback (response) {
 		console.log(response.data);
+		$scope.updatePlans();
 	    }, function errorCallback (failure) {
 		console.log("failed : ", failure);
 	    });

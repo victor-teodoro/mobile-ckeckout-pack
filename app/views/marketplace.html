@@ -16,12 +16,12 @@
 		<br/>
 
 		<!-- Lista de recebedores -->
-		<recipients build-split-rules="buildSplitRules" split-rules="splitRules" is-amount="isAmount"></recipients>
+		<recipients update-recipients="updateRecipients" build-split-rules="buildSplitRules" split-rules="splitRules" is-amount="isAmount"></recipients>
 
 		<br/>
 
 		<!-- Pagamanento com N cartões e boleto -->
-		<payment-method price="price" is-checkout="isCheckout" num-of-cards="numOfCards" payment-methods="paymentMethods" pay="pay"></payment-method>
+		<payment-method price="price" is-checkout="isCheckout" num-of-cards="numOfCards" payment-methods="paymentMethods" pay="pay" amount-per-method="amountPerMethod"></payment-method>
 	    </div>
 	</div>
     </div>

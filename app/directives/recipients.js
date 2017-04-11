@@ -5,7 +5,8 @@ app.directive("recipients", function() {
 	scope: {
 	    buildSplitRules: '=',
 	    splitRules: '=',
-	    isAmount: '='
+	    isAmount: '=',
+	    updateRecipients: '='
 	}
     };
 });

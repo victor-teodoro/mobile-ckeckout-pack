@@ -1,114 +1,116 @@
-<h4>Recebedores</h4>
-<p>Aqui você pode visualizar como fazemos o <a href="https://pagar.me/marketplace/" class="baloo-tamma">split de pagamento</a> entre recebedores. Selecione seus recebedores e o quanto devem receber do valor da transação. O significado de cada um desses campos pode ser encontrado <a class="baloo-tamma" href="https://docs.pagar.me/api/#objeto-split_rule">aqui</a>.<br/><span class="text-muted small-print">O preenchimento das regras de split é obrigatório!</span></p>
+<div ng-init="updateRecipients()">
+    <h4>Recebedores</h4>
+    <p>Aqui você pode visualizar como fazemos o <a href="https://pagar.me/marketplace/" class="baloo-tamma">split de pagamento</a> entre recebedores. Selecione seus recebedores e o quanto devem receber do valor da transação. O significado de cada um desses campos pode ser encontrado <a class="baloo-tamma" href="https://docs.pagar.me/api/#objeto-split_rule">aqui</a>.<br/><span class="text-muted small-print">O preenchimento das regras de split é obrigatório!</span></p>
 
-<!-- Formulário de Metadata -->
-<div class="btn-group" role="group">
-    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="addRecipient()">+</button>
-    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="removeRecipient()">-</button>
-    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="updateRecipients()">Atualizar lista</button>
-    <button id="register-button" class="btn btn-outline-primary" ng-style="getHeaderColor()" data-toggle="modal" data-target="#register-modal">Cadastrar recebedor</button> 
-</div>
-<br/>
-<label class="radio-inline"><input type="radio" name="split-type" ng-model="isAmount" ng-value="false">Porcentagem</label>
-<label class="radio-inline"><input type="radio" name="split-type" ng-model="isAmount" ng-value="true">Dinheiro</label>
-<br/>
-<div class="row">
-    <div class="col-xs-2" style="margin: 0px 180px 0px 20px;">
-	<p class="text-muted">Recebedor</p>
+    <!-- Formulário de Metadata -->
+    <div class="btn-group" role="group">
+	<button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="addRecipient()">+</button>
+	<button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="removeRecipient()">-</button>
+	<button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="updateRecipients()">Atualizar lista</button>
+	<button id="register-button" class="btn btn-outline-primary" ng-style="getHeaderColor()" data-toggle="modal" data-target="#register-modal">Cadastrar recebedor</button> 
     </div>
-    <div class="col-xs-2" ng-hide="isAmount">
-	<p class="text-muted" style="margin-right: 50px;">%</p>
-    </div>
-    <div class="col-xs-2" ng-show="isAmount">
-	<p class="text-muted" style="margin-right: 50px;">R$</p>
-    </div>
-    <div class="col-xs-2">
-	<p class="text-muted" style="margin-right: 60px;">Chbk</p>
-    </div>
-    <div class="col-xs-2">
-	<p class="text-muted" style="margin-right: 20px;">Taxas</p>
-    </div>
-</div>
-<form class="form" ng-repeat="i in range(0, numOfRecipients)" style="width: 600px;">
-    <div class="form-group">
-	<div class="row">
-	    <div class="col-xs-2">
-		<select class="form-control" ng-options="recipient as recipient.bank_account.legal_name for recipient in recipients" ng-model="selectedRecipients[i]" style="width: 250px;"></select>
-	    </div>
-	    <div class="col-xs-2" ng-hide="isAmount">
-		<input type="text" class="form-control" ng-model="selectedRecipients[i].percentage" placeholder=" % " style="width: 60px;">
-	    </div>
-	    <div class="col-xs-2" ng-show="isAmount">
-		<input type="text" class="form-control" ng-model="selectedRecipients[i].amount" placeholder=" R$ " style="width: 60px;">
-	    </div>
-	    <div class="col-xs-2">
-		<select id="chargeback" class="form-control" ng-options="option for option in options" ng-model="selectedRecipients[i].liable" style="width: 90px;"></select>
-	    </div>
-	    <div class="col-xs-2">
-		<select id="mdr" class="form-control" ng-options="option for option in options" ng-model="selectedRecipients[i].fee" style="width: 90px;"></select>
-	    </div>
+    <br/>
+    <label class="radio-inline"><input type="radio" name="split-type" ng-model="isAmount" ng-value="false">Porcentagem</label>
+    <label class="radio-inline"><input type="radio" name="split-type" ng-model="isAmount" ng-value="true">Dinheiro</label>
+    <br/>
+    <div class="row">
+	<div class="col-xs-2" style="margin: 0px 180px 0px 20px;">
+	    <p class="text-muted">Recebedor</p>
+	</div>
+	<div class="col-xs-2" ng-hide="isAmount">
+	    <p class="text-muted" style="margin-right: 50px;">%</p>
+	</div>
+	<div class="col-xs-2" ng-show="isAmount">
+	    <p class="text-muted" style="margin-right: 50px;">R$</p>
+	</div>
+	<div class="col-xs-2">
+	    <p class="text-muted" style="margin-right: 60px;">Chbk</p>
+	</div>
+	<div class="col-xs-2">
+	    <p class="text-muted" style="margin-right: 20px;">Taxas</p>
 	</div>
     </div>
-</form>
-
-<!-- Register Modal -->
-<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" my-modal>
-    <div class="modal-dialog" role="document">
-	<div class="modal-content">
-	    <div class="modal-header" ng-style="getHeaderColor()">
-		<h6 class="white baloo-tamma" id="exampleModalLabel">Registro de recebedor</h6>
-		<button type="button" class="close white" data-dismiss="modal" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		</button>
+    <form class="form" ng-repeat="i in range(0, numOfRecipients)" style="width: 600px;">
+	<div class="form-group">
+	    <div class="row">
+		<div class="col-xs-2">
+		    <select class="form-control" ng-options="recipient as recipient.bank_account.legal_name for recipient in recipients" ng-model="selectedRecipients[i]" style="width: 250px;"></select>
+		</div>
+		<div class="col-xs-2" ng-hide="isAmount">
+		    <input type="text" class="form-control" ng-model="selectedRecipients[i].percentage" placeholder=" % " style="width: 60px;">
+		</div>
+		<div class="col-xs-2" ng-show="isAmount">
+		    <input type="text" class="form-control" ng-model="selectedRecipients[i].amount" placeholder=" R$ " style="width: 60px;">
+		</div>
+		<div class="col-xs-2">
+		    <select id="chargeback" class="form-control" ng-options="option for option in options" ng-model="selectedRecipients[i].liable" style="width: 90px;"></select>
+		</div>
+		<div class="col-xs-2">
+		    <select id="mdr" class="form-control" ng-options="option for option in options" ng-model="selectedRecipients[i].fee" style="width: 90px;"></select>
+		</div>
 	    </div>
-	    <div class="modal-body">
-		<!-- Nome -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label style="margin: 0px 28px 0px 0px;">nome</label>
-			<input id="register-name" ng-model="recipient_creation.bank_account.legal_name" type="text" class="form-control" maxlength="32" size="15" placeholder="nome" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		</form>
+	</div>
+    </form>
 
-		<br>
-		
-		<!-- Agência -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label class="o-text -xs-pica -xs-regular" style="margin: 0px 10px 0px 0px;">agência</label>
-			<input id="register-ag-number" ng-model="recipient_creation.bank_account.agencia" value="6444" type="text" class="form-control" id="account-number" maxlength="4" size="7" placeholder="agência" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		    <div class="form-group">
-			<input id="register-ag-digit" ng-model="recipient_creation.bank_account.agencia_dv" type="text" class="form-control" maxlength="1" size="1" placeholder="x">
-		    </div>
-		</form>
+    <!-- Register Modal -->
+    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" my-modal>
+	<div class="modal-dialog" role="document">
+	    <div class="modal-content">
+		<div class="modal-header" ng-style="getHeaderColor()">
+		    <h6 class="white baloo-tamma" id="exampleModalLabel">Registro de recebedor</h6>
+		    <button type="button" class="close white" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		    </button>
+		</div>
+		<div class="modal-body">
+		    <!-- Nome -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label style="margin: 0px 28px 0px 0px;">nome</label>
+			    <input id="register-name" ng-model="recipient_creation.bank_account.legal_name" type="text" class="form-control" maxlength="32" size="15" placeholder="nome" style="margin: 0px 10px 0px 0px;">
+			</div>
+		    </form>
 
-		<br>
+		    <br>
+		    
+		    <!-- Agência -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label class="o-text -xs-pica -xs-regular" style="margin: 0px 10px 0px 0px;">agência</label>
+			    <input id="register-ag-number" ng-model="recipient_creation.bank_account.agencia" value="6444" type="text" class="form-control" id="account-number" maxlength="4" size="7" placeholder="agência" style="margin: 0px 10px 0px 0px;">
+			</div>
+			<div class="form-group">
+			    <input id="register-ag-digit" ng-model="recipient_creation.bank_account.agencia_dv" type="text" class="form-control" maxlength="1" size="1" placeholder="x">
+			</div>
+		    </form>
 
-		<!-- Número da Conta -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label class="o-text -xs-pica -xs-regular" style="margin: 0px 10px 0px 0px;">número</label>
-			<input id="register-account-number" ng-model="recipient_creation.bank_account.conta" value="03333" type="text" class="form-control" maxlength="6" size="7" placeholder="número" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		    <div class="form-group">
-			<input id="register-account-digit" ng-model="recipient_creation.bank_account.conta_dv" value="1" type="text" class="form-control" maxlength="1" size="1" placeholder="x">
-		    </div>
-		</form>
+		    <br>
 
-		<br>
-		
-		<!-- CPF -->
-		<form class="form-inline">
-		    <div class="form-group">
-			<label class="o-text -xs-pica -xs-regular" style="margin: 0px 47px 0px 0px;">cpf</label>
-			<input id="register-cpf" ng-model="recipient_creation.bank_account.document_number" value="52882585896" type="text" class="form-control" id="account-number" maxlength="11" size="15" placeholder="cpf" style="margin: 0px 10px 0px 0px;">
-		    </div>
-		</form>
-		
-	    </div>
-	    <div class="modal-footer">
-		<button ng-click="registerRecipient()" type="button" class="btn btn-outline-primary" ng-style="getHeaderColor()" data-dismiss="modal">registrar</button>
+		    <!-- Número da Conta -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label class="o-text -xs-pica -xs-regular" style="margin: 0px 10px 0px 0px;">número</label>
+			    <input id="register-account-number" ng-model="recipient_creation.bank_account.conta" value="03333" type="text" class="form-control" maxlength="6" size="7" placeholder="número" style="margin: 0px 10px 0px 0px;">
+			</div>
+			<div class="form-group">
+			    <input id="register-account-digit" ng-model="recipient_creation.bank_account.conta_dv" value="1" type="text" class="form-control" maxlength="1" size="1" placeholder="x">
+			</div>
+		    </form>
+
+		    <br>
+		    
+		    <!-- CPF -->
+		    <form class="form-inline">
+			<div class="form-group">
+			    <label class="o-text -xs-pica -xs-regular" style="margin: 0px 47px 0px 0px;">cpf</label>
+			    <input id="register-cpf" ng-model="recipient_creation.bank_account.document_number" value="52882585896" type="text" class="form-control" id="account-number" maxlength="11" size="15" placeholder="cpf" style="margin: 0px 10px 0px 0px;">
+			</div>
+		    </form>
+		    
+		</div>
+		<div class="modal-footer">
+		    <button ng-click="registerRecipient()" type="button" class="btn btn-outline-primary" ng-style="getHeaderColor()" data-dismiss="modal">registrar</button>
+		</div>
 	    </div>
 	</div>
     </div>
