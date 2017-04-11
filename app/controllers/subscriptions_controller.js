@@ -1,4 +1,12 @@
-app.controller('subscriptionsCtrl', ['$scope', '$http', 'paymentService', 'apiKeyService', function($scope, $http, paymentService, apiKeyService) {
+app.controller('subscriptionsCtrl', ['$scope', '$http', 'paymentService', 'apiKeyService', 'styleService', function($scope, $http, paymentService, apiKeyService, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     $scope.showOkMsg = false;
 
     /**********************************************
@@ -86,9 +94,10 @@ app.controller('subscriptionsCtrl', ['$scope', '$http', 'paymentService', 'apiKe
 	    "maxInstallments": "12",
 	    "paymentMethods": "credit_card",
 	    "interestRate": "0",
-	    "uiColor": "#000000"
+	    "uiColor": $scope.getHeaderColor()
 	};
-	
+
+	console.log($scope.getHeaderColor());
         checkout.open(params);	    
     };
 

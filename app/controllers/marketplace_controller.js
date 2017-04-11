@@ -1,4 +1,12 @@
-app.controller('marketplaceCtrl', ['$scope', '$http', 'paymentService', 'apiKeyService', function($scope, $http, paymentService, apiKeyService) {
+app.controller('marketplaceCtrl', ['$scope', '$http', 'paymentService', 'apiKeyService', 'styleService', function($scope, $http, paymentService, apiKeyService, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     // Controla a exibição do footer
     $scope.height = {
 	'min-height': getHeight() + "px"
@@ -95,7 +103,7 @@ app.controller('marketplaceCtrl', ['$scope', '$http', 'paymentService', 'apiKeyS
 	    "maxInstallments": "12",
 	    "paymentMethods": "credit_card",
 	    "interestRate": "0",
-	    "uiColor": "#000000"
+	    "uiColor": $scope.getHeaderColor()["background-color"]
 	};
 	
         checkout.open(params);	    

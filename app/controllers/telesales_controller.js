@@ -1,4 +1,12 @@
-app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', function($scope, $http, apiKeyService) {
+app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', 'styleService', function($scope, $http, apiKeyService, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+
     // Controla o que é mostrado
     $scope.chktSuccess = false;
     $scope.linkSuccess = false;
@@ -42,7 +50,7 @@ app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', function($s
 	    "maxInstallments": "12",
 	    "paymentMethods": "credit_card",
 	    "interestRate": "0",
-	    "uiColor": "#000000"
+	    "uiColor": $scope.getHeaderColor()["background-color"]
 	};
 	
         checkout.open(params);	    

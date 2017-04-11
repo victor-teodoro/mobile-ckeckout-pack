@@ -38,7 +38,7 @@
 <div class="modal fade" id="amounts-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" my-modal>
     <div class="modal-dialog" role="document">
 	<div class="modal-content">
-	    <div class="modal-header bg-inverse">
+	    <div class="modal-header" ng-style="getHeaderColor()">
 		<h4 class="white baloo-tamma">Valores por cartão</h4>
 		<button type="button" class="close white" data-dismiss="modal" aria-label="Close">
 		    <span aria-hidden="true">&times;</span>
@@ -81,10 +81,10 @@
 		</form>
 	    </div>
 	    <div class="modal-footer" ng-hide="numOfBoletos === 1">
-		<button ng-click="creditCard()" type="button" class="btn btn-outline-primary" data-dismiss="modal">Pagar</button>
+		<button ng-click="creditCard()" type="button" class="btn btn-outline-primary" ng-style="getHeaderColor()" data-dismiss="modal">Pagar</button>
 	    </div>
 	    <div class="modal-footer" ng-show="numOfBoletos === 1">
-		<button ng-click="creditCardAndBoleto()" type="button" class="btn btn-outline-primary" data-dismiss="modal">Pagar</button>
+		<button ng-click="creditCardAndBoleto()" type="button" class="btn btn-outline-primary" ng-style="getHeaderColor()" data-dismiss="modal">Pagar</button>
 	    </div>
 	</div>
     </div>

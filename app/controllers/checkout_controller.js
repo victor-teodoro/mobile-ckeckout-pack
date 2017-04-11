@@ -97,7 +97,7 @@ app.controller('checkoutCtrl', ['$scope', '$http', 'styleService', 'paymentServi
 	    "maxInstallments": "12",
 	    "paymentMethods": "credit_card",
 	    "interestRate": "0",
-	    "uiColor": "#000000",
+	    "uiColor": $scope.getHeaderColor()["background-color"],
 	    "headerText": "Cartão # " + $scope.cardsProcessed
 	};
 	

@@ -63,12 +63,12 @@ app.controller('subscriptionCtrl', ['$scope', '$http', 'apiKeyService', 'styleSe
 	    captureSubscription(data.token, data.payment_method, data.card_hash, $scope.selectedPlan.id, $scope.selectedPlan.amount, $scope.metadata);
         }
 						})
-	
+	$scope.getHeaderColor()["background-color"]
         var params = {
             customerData:"false",
             amount: $scope.selectedPlan.amount,
             createToken: "false",
-            uiColor: "#000000",
+            uiColor: $scope.getHeaderColor()["background-color"],
             paymentMethods: "credit_card, boleto"
         }
 
