@@ -1,4 +1,4 @@
-<div class="row padding-50 bg-white" style="margin-top: 150px;" style="width: 100%" ng-style="getBackgroundColor()>
+<div class="row padding-50 bg-white" style="margin-top: 150px;" style="width: 100%">
     <div class="col-md-4">&nbsp&nbsp&nbsp&nbsp</div>
     <div class="col-md-4">
 	
@@ -7,12 +7,12 @@
 </div>
 
 <!-- Primeira parte, que inicia vísivel -->
-<div class="container" style="width: 100%" ng-style="getBackgroundColor()>
+<div class="container" style="width: 100%">
     <div class="row">
 	<div class="col-xs-4 center-block">
 	    <div class="width-small">
 		<div class="panel panel-default">
-		    <div class="panel-heading">Login</div>
+		    <div class="panel-heading" ng-style="getHeaderColor()" style="height: 35px; margin-bottom: 10px;">Login</div>
 		    <div class="panel-body">
 			<div class="input-group" style="margin-bottom:10px">
 			    <span class="input-group-addon" id="basic-addon1"> @ </span>
@@ -22,7 +22,7 @@
 			    <span class="input-group-addon"  id="basic-addon1"> #&nbsp;</span>
 			    <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
 			</div>
-			<a href="#telesales" class="btn btn-primary">Entrar</a>
+			<a href="#telesales" ng-style="getHeaderColor()" style="margin-bottom: 200px;" class="btn btn-primary">Entrar</a>
 		    </div>
 		</div>
 	    </div>

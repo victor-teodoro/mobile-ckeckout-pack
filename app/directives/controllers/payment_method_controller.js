@@ -1,4 +1,12 @@
-app.controller('paymentMethodCtrl', ['$scope', function($scope) {
+app.controller('paymentMethodCtrl', ['$scope', 'styleService', function($scope, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     // Diz se é Checkout ou Mktplace
     $scope.isCheckout;
     $scope.numOfBoletos = 0;

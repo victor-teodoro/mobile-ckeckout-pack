@@ -1,4 +1,12 @@
-app.controller('metadataCtrl', ['$scope', function($scope) {
+app.controller('metadataCtrl', ['$scope', 'styleService', function($scope, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     // Vetores que guardam as chaves e os valores dos metadatas
     $scope.metadataKeys = [];
     $scope.metadataValues = [];

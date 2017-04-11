@@ -3,8 +3,8 @@
 
 <!-- Formulário de Metadata -->
 <div class="btn-group" role="group">
-    <button class="btn btn-outline-primary" ng-click="addMetadata()">+</button>
-    <button class="btn btn-outline-primary" ng-click="removeMetadata()">-</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="addMetadata()">+</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="removeMetadata()">-</button>
 </div>
 <form class="form-inline" ng-repeat="i in range(0, numOfMetadata)">
     <div class="form-group">

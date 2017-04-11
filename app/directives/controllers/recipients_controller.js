@@ -1,4 +1,12 @@
-app.controller('recipientsCtrl', ['$scope', '$http', 'apiKeyService', function($scope, $http, apiKeyService) {
+app.controller('recipientsCtrl', ['$scope', '$http', 'apiKeyService', 'styleService', function($scope, $http, apiKeyService, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     // Infos dos recebedores
     $scope.recipients = [];
     $scope.selectedRecipients = [];

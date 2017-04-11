@@ -2,32 +2,32 @@
 
 <!-- Botões para alterar o # de cartões -->
 <div class="btn-group" role="group" ng-show="isCheckout">
-    <button class="btn btn-outline-primary" ng-click="addCreditCard()">+ Cartões</button>
-    <button class="btn btn-outline-primary" ng-click="removeCreditCard()">- Cartões</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="addCreditCard()">+ Cartões</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="removeCreditCard()">- Cartões</button>
 </div>
 
 <br/>
 
 <!-- 1 Cartão -->
 <div class="btn-group" role="group" ng-show="numOfCards === 1 && isCheckout">    
-    <button class="btn btn-outline-primary" ng-click="creditCard()">{{numOfCards}} Cartão</button>
-    <button class="btn btn-outline-primary" ng-click="creditCardAndBoleto()"> {{numOfCards}} Cartão + Boleto</button>
-    <button class="btn btn-outline-primary" ng-click="boleto()">&nbsp; Boleto &nbsp;</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="creditCard()">{{numOfCards}} Cartão</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="creditCardAndBoleto()"> {{numOfCards}} Cartão + Boleto</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="boleto()">&nbsp; Boleto &nbsp;</button>
 </div>
 
 <br/>
 
 <!-- Mais de 1 cartão -->
 <div class="btn-group" role="group" ng-show="numOfCards > 1 && isCheckout">
-    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#amounts-modal">{{numOfCards}} Cartões</button>
-    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#amounts-modal" ng-click="numOfBoletos = 1">{{numOfCards}} Cartões + Boleto</button>
-    <button class="btn btn-outline-primary" ng-click="boleto()">&nbsp; Boleto &nbsp;</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" data-toggle="modal" data-target="#amounts-modal">{{numOfCards}} Cartões</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" data-toggle="modal" data-target="#amounts-modal" ng-click="numOfBoletos = 1">{{numOfCards}} Cartões + Boleto</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="boleto()">&nbsp; Boleto &nbsp;</button>
 </div>
 
 <!-- 1 Cartão e Boleto apenas (marketplace) -->
 <div class="btn-group" role="group" ng-hide="isCheckout">    
-    <button class="btn btn-outline-primary" ng-click="creditCard()">Cartão</button>
-    <button class="btn btn-outline-primary" ng-click="boleto()">Boleto</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="creditCard()">Cartão</button>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" ng-click="boleto()">Boleto</button>
 </div>
 
 <!-- ---------------------------------------------- -->

@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 100px; width: 100%;" ng-style="getBackgroundColor()>
+<div class="container" style="margin-top: 100px; width: 100%;">
     <div class="row">
 	<div class="col-xs-4 center-block">
 	    <div class="width-small">
@@ -7,11 +7,11 @@
 		    <product product-id="productId" price="price"></product>
 		    <br/>
 
-		    <button ng-click="openCheckout(price)" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 10px;">FINALIZAR COMPRA</button>
+		    <button ng-click="openCheckout(price)" class="btn btn-outline-primary" ng-style="getHeaderColor()" style="width: 100%; margin-bottom: 10px;">FINALIZAR COMPRA</button>
 		    <br/>
 		    <input type="text" ng-model="costumerName" class="form-control" placeholder="Nome do cliente" size="30" maxlength="40">
 		    <input type="text" ng-model="costumerEmail" class="form-control" placeholder="email@something.com" size="30" maxlength="40">
-		    <button ng-click="sendEmail()" class="btn btn-outline-primary" value="ENVIAR EMAIL" style="width: 100%; margin-top: 5px;">ENVIAR EMAIL</button>
+		    <button ng-click="sendEmail()" ng-style="getHeaderColor()" class="btn btn-outline-primary" value="ENVIAR EMAIL" style="width: 100%; margin-top: 5px;">ENVIAR EMAIL</button>
 		</div>
 		
 		<div id="msg" class="text-center" ng-show="chktSuccess">
