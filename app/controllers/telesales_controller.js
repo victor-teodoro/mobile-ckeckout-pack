@@ -1,4 +1,4 @@
-app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', 'styleService', function($scope, $http, apiKeyService, styleService) {
+app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', 'styleService', '$timeout', function($scope, $http, apiKeyService, styleService, $timeout) {
     // Getters e setters das cores
     $scope.getBackgroundColor = function () {
 	return styleService.getBackgroundColor();
@@ -73,6 +73,12 @@ app.controller('telesalesCtrl', ['$scope', '$http', 'apiKeyService', 'styleServi
 	    }, function errorCallback (failure) {
 		console.log("failed : ", failure);
 	    });	
-    }
+    };
+
+    $scope.openCheckoutWithTimeout = function(){
+	$timeout(function() {
+	    $scope.openCheckout($scope.price)
+	}, 1000);
+    };
 }]);
 

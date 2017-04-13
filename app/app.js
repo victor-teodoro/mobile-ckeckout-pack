@@ -29,6 +29,10 @@ app.config(['$routeProvider', function($routeProvider) {
 	.when("/subscriptions", {
 	    templateUrl: "views/subscriptions.html",
 	    controller: 'subscriptionsCtrl'
+	})
+	.when("/telesales_checkout", {
+	templateUrl: "views/telesalescheckout.html",
+	controller: 'telesalesCtrl'
 	});
 }]);
 
