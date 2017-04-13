@@ -2,7 +2,7 @@
     <h5>{{productName}}</h5>
     <img ng-src="{{imgURL}}" class="produto-thumb">
     <br/><br/>
-    <p><b class="baloo-tamma">Preço:</b> R$ {{price.toString().replace(".", ",")}}</p>
+    <p><b class="baloo-tamma">Preço:</b> R$ {{price.toFixed(2).toString().replace(".", ",")}}</p>
     <br/>
     <!-- <b class="baloo-tamma">Id do Produto:</b> {{productId}}</p> -->
 

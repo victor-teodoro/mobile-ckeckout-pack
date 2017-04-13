@@ -19,8 +19,7 @@ app.controller('productCtrl', ['$scope', '$cookies', 'styleService', function($s
     // Salva as infos do produto
     $scope.saveProductInfo = function() {
 	// Preço
-	var priceTempNormalized = Number($scope.priceTemp.replace(',', '.'));
-	$scope.price = priceTempNormalized.toFixed(2);
+	$scope.price = Number($scope.priceTemp.replace(',', '.'));
 	$cookies.put('price', $scope.price);
 	$cookies.put('priceTemp', $scope.priceTemp);
 
