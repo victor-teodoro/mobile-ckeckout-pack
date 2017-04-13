@@ -1,7 +1,29 @@
 <div class="boxed">
-    <h5>Tênis Preto Bela Veludo</h5>
-    <img src="images/produto.png" class="produto-thumb">
+    <h5>{{productName}}</h5>
+    <img ng-src="{{imgURL}}" class="produto-thumb">
     <br/><br/>
-    <p><b class="baloo-tamma">Preço:</b> R$ {{price.toFixed(2).toString().replace(".", ",")}}<br/>
+    <p><b class="baloo-tamma">Preço:</b> R$ {{price.toString().replace(".", ",")}}</p>
+    <br/>
     <!-- <b class="baloo-tamma">Id do Produto:</b> {{productId}}</p> -->
+
+    <!-- Customização -->
+    <h4>Customize sua demo!</h4>
+    <div class="form" class="text-center">
+	<h6 style="margin-right: 5px; margin-left: 10px;">O nome do seu produto:</h6>
+	<input ng-model="productNameTemp" type="text" class="form-control" size="40" style="width: 70%; margin-left: 15%;">
+    </div>
+    <br>
+    <div class="form" class="text-center">
+	<h6 style="margin-right: 5px; margin-left: 10px;">A URL da imagem do seu produto:</h6>
+	<input ng-model="imgURLTemp" type="text" class="form-control" size="40" style="width: 70%; margin-left: 15%;">
+    </div>
+    <br>
+    <div class="text-center">
+	<div class="form-inline" style="text-float: center;">
+	    <h6 style="margin-right: 5px; margin-left: 150px;">O preço do seu produto:</h6>
+	    <input ng-model="priceTemp" type="text" class="form-control" size="10" maxlength="10" style="width: 20%; margin-left: 5px;">
+	</div>
+    </div>
+    <br>
+    <button class="btn btn-outline-primary" ng-style="getHeaderColor()" type="button" ng-click="saveProductInfo()" style="width: 70%; margin-bottom: 20px;">Salvar</button>
 </div>
