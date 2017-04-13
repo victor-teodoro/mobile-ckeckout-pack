@@ -1,9 +1,12 @@
-app.service('apiKeyService', function() {
-    this.apiKey = "ak_test_jUC8l5YGoIX34M8IMYSmG7Sd8YcUkH";
-    this.encryptionKey = "ek_test_G84bs5wa355FioxHAC00lGUe1f1p4O";
+app.service('apiKeyService', ['$cookies', function($cookies) {
+    this.apiKey = $cookies.get('apiKey') || "ak_test_Vuemp95WIABMbPCDSd75CuRolVIZBk";
+    this.encryptionKey = $cookies.get('encryptionKey') || "ek_test_81kzRKpg3fao6R6raOVQNwwBEWFnl3";    
+    
 
+    // Getters and setters
     this.addApiKey = function(apiKey) {
 	this.apiKey = apiKey;
+	$cookies.put('apiKey', apiKey);
     };
     this.getApiKey = function(){
 	return this.apiKey;
@@ -11,8 +14,9 @@ app.service('apiKeyService', function() {
 
     this.addEcryptionKey = function(encryptionKey) {
 	this.encryptionKey = encryptionKey;
+	$cookies.put('encryptionKey', encryptionKey);
     };
     this.getEncryptionKey = function(){
 	return this.encryptionKey;
     };
-});
+}]);
