@@ -1,4 +1,12 @@
-app.controller('productCtrl', ['$scope', '$cookies', function($scope, $cookies) {
+app.controller('productCtrl', ['$scope', '$cookies', 'styleService', function($scope, $cookies, styleService) {
+    // Getters e setters das cores
+    $scope.getBackgroundColor = function () {
+	return styleService.getBackgroundColor();
+    };
+    $scope.getHeaderColor = function () {
+	return styleService.getHeaderColor();
+    };
+    
     // Infos do produto
     $scope.productId = 2345;
     $scope.productName = $cookies.get('productName') || "Tênis Bela Veludo"
