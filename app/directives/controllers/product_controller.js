@@ -19,18 +19,24 @@ app.controller('productCtrl', ['$scope', '$cookies', 'styleService', function($s
     // Salva as infos do produto
     $scope.saveProductInfo = function() {
 	// Preço
-	$scope.price = Number($scope.priceTemp.replace(',', '.'));
-	$cookies.put('price', $scope.price);
-	$cookies.put('priceTemp', $scope.priceTemp);
+	if($scope.priceTemp) {
+	    $scope.price = Number($scope.priceTemp.replace(',', '.'));
+	    $cookies.put('price', $scope.price);
+	    $cookies.put('priceTemp', $scope.priceTemp);
+	}
 
 	// URL da imagem do produto
-	$scope.imgURL = $scope.imgURLTemp;
-	$cookies.put('imgURL', $scope.imgURL);
-	$cookies.put('imgURLTemp', $scope.imgURLTemp);
+	if($scope.imgURLTemp){
+	    $scope.imgURL = $scope.imgURLTemp;
+	    $cookies.put('imgURL', $scope.imgURL);
+	    $cookies.put('imgURLTemp', $scope.imgURLTemp);
+	}
 
 	// O nome do produto a ser exibido
-	$scope.productName = $scope.productNameTemp;
-	$cookies.put('productName', $scope.productName);
-	$cookies.put('productNameTemp', $scope.productNameTemp);
+	if($scope.productNameTemp){
+	    $scope.productName = $scope.productNameTemp;
+	    $cookies.put('productName', $scope.productName);
+	    $cookies.put('productNameTemp', $scope.productNameTemp);
+	}
     };
 }]);

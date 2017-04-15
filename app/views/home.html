@@ -21,8 +21,13 @@
 		    <h5 style="margin-right: 5px;">Escolha a cor do header (em hexadecimal):</h5> <input ng-model="headerColor" type="text" class="form-control" size="8" maxlength="7">
 		</div>
 		<br>
+		<div class="form">
+		    <h5 style="margin-right: 5px;">Entre com o URL do logo da sua empresa:</h5>
+		    <input ng-model="ciaLogoURLTemp" type="text" class="form-control" size="40" maxlength="100">
+		</div>
 		<br>
-		<button class="btn btn-outline-primary" ng-style="getHeaderColor()" type="button" ng-click="saveColors()" style="width: 100%; margin-bottom: 30px;">Salvar</button>
+		<br>
+		<button class="btn btn-outline-primary" ng-style="getHeaderColor()" type="button" ng-click="save()" style="width: 100%; margin-bottom: 30px;">Salvar</button>
 
 		<!-- Guia de uso -->
 		<h4>Como usar:</h4>

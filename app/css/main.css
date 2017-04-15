@@ -72,8 +72,8 @@ a:hover, a:visited, a:focus
 }
 
 .logo-pagarme {
-    height: 30%;
-    width: 30%;
+    height: 40px;
+    width: 100px;
 }
 
 .pull-right {
