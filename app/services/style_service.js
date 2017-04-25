@@ -1,9 +1,10 @@
-app.service('styleService', function() {
+app.service('styleService', ['$cookies', function($cookies) {
     this.backgroundColor = {
 	"background-color": "#FFFFFF",
 	/*"width": "100%"*/
     };
-    this.headerColor = {"background-color": "#EE0000"};
+    var headerColorCookie = $cookies.get('headerColor');
+    this.headerColor = {"background-color": headerColorCookie || "#EE0000"};
 
     this.setBackgroundColor = function(backgroundColor) {
 	this.backgroundColor = {"background-color": backgroundColor};
@@ -14,8 +15,9 @@ app.service('styleService', function() {
 
     this.setHeaderColor = function(headerColor) {
 	this.headerColor= {"background-color": headerColor};
+	$cookies.put('headerColor', headerColor);
     };
     this.getHeaderColor = function(){
 	return this.headerColor;
     };
-});
+}]);
