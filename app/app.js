@@ -41,9 +41,10 @@ app.config(['$routeProvider', function($routeProvider) {
 	.when("/multiplus/compre_pontos", {
 	    templateUrl: "views/multiplus.html",
 	    controller: 'multiplusCtrl'
+	    })
 	.when("/telesales_checkout", {
-	templateUrl: "views/telesalescheckout.html",
-	controller: 'telesalesCtrl'
+	    templateUrl: "views/telesalescheckout.html",
+	    controller: 'telesalesCtrl'
 	});
 }]);
 
