@@ -29,6 +29,18 @@ app.config(['$routeProvider', function($routeProvider) {
 	.when("/subscriptions", {
 	    templateUrl: "views/subscriptions.html",
 	    controller: 'subscriptionsCtrl'
+	})
+	.when("/multiplus/troque_pontos", {
+	    templateUrl: "views/multiplus.html",
+	    controller: 'multiplusCtrl'
+	})
+	.when("/multiplus/clube", {
+	    templateUrl: "views/multiplus.html",
+	    controller: 'multiplusCtrl'
+	})
+	.when("/multiplus/compre_pontos", {
+	    templateUrl: "views/multiplus.html",
+	    controller: 'multiplusCtrl'
 	});
 }]);
 
