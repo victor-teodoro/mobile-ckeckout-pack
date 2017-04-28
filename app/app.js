@@ -1,35 +1,7 @@
-var app = angular.module("standardWebDemoApp", ["ngRoute", 'ngCookies']);
+var app = angular.module("mobileCheckoutApp", ["ngRoute", 'ngCookies']);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-	.when("/", {
-	    templateUrl : "views/home.html",
-	    controller: 'homeCtrl'
-	})
-	.when("/api_key", {
-	    templateUrl : "views/api_key.html",
-	    controller: 'apiKeyCtrl'
-	})
-	.when("/checkout", {
-	    templateUrl : "views/checkout.html",
-	    controller: 'checkoutCtrl'
-	})
-	.when("/marketplace", {
-	    templateUrl : "views/marketplace.html",
-	    controller: 'marketplaceCtrl'
-	})
-	.when("/telesales", {
-	    templateUrl : "views/telesales.html",
-	    controller: 'telesalesCtrl'
-	})
-	.when("/login", {
-	    templateUrl : "views/login.html",
-	    controller: 'telesalesCtrl'
-	})
-	.when("/subscriptions", {
-	    templateUrl: "views/subscriptions.html",
-	    controller: 'subscriptionsCtrl'
-	})
 	.when("/multiplus/troque_pontos", {
 	    templateUrl: "views/multiplus.html",
 	    controller: 'multiplusCtrl'
@@ -41,11 +13,7 @@ app.config(['$routeProvider', function($routeProvider) {
 	.when("/multiplus/compre_pontos", {
 	    templateUrl: "views/multiplus.html",
 	    controller: 'multiplusCtrl'
-	    })
-	.when("/telesales_checkout", {
-	    templateUrl: "views/telesalescheckout.html",
-	    controller: 'telesalesCtrl'
-	});
+	    });
 }]);
 
 // Changes the hash bang routing

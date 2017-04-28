@@ -23,46 +23,15 @@
 	<script src="app.js"></script>
 
 	<!-- Services -->
-	<script src="services/style_service.js"></script>
-	<script src="services/api_key_service.js"></script>
-	<script src="services/payment_service.js"></script>
-	<script src="services/post_service.js"></script>
 	
 	<!-- Controllers -->
-	<script src="controllers/home_controller.js"></script>
-	<script src="controllers/api_key_controller.js"></script>
-	<script src="controllers/checkout_controller.js"></script>
-	<script src="controllers/marketplace_controller.js"></script>
-	<script src="controllers/subscriptions_controller.js"></script>
-	<script src="controllers/telesales_controller.js"></script>
 	<script src="controllers/multiplus_controller.js"></script>
 
 	<!-- Directice Controllers -->
-	<script src="directives/controllers/header_controller.js"></script>
-	<script src="directives/controllers/metadata_controller.js"></script>
-	<script src="directives/controllers/product_controller.js"></script>
-	<script src="directives/controllers/payment_method_controller.js"></script>
-	<script src="directives/controllers/recipients_controller.js"></script>
-	<script src="directives/controllers/subscription_controller.js"></script>
 	
 	<!-- Directives -->
-	<script src="directives/std_demo_header.js"></script>
-	<script src="directives/std_demo_footer.js"></script>
-	<script src="directives/metadata_form.js"></script>
-	<script src="directives/product.js"></script>
-	<script src="directives/payment_method.js"></script>
-	<script src="directives/recipients.js"></script>
-	<script src="directives/subscription.js"></script>
     </head>
-    <body ng-app="standardWebDemoApp">
-	<div class="wrapper">
-	    <std-demo-header></std-demo-header>
-	    
+    <body ng-app="mobileCheckoutApp">	    
 	    <ng-view></ng-view>
-
-	    <div class="push"></div>
-	</div>
-
-	    <std-demo-footer></std-demo-footer>
     </body>
 </html>
